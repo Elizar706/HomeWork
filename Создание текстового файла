@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string myfirstTXT = "YBA.txt";
+            File.WriteAllText(myfirstTXT, "str1"); //запись строки в файл
+            File.AppendAllText(myfirstTXT, Environment.NewLine); //новая строка
+            File.AppendAllLines(myfirstTXT, new[] { "str2", "str3" }); //ещё 2 строки
+            string fileText = File.ReadAllText(myfirstTXT); //прочитать все строки
+            Console.WriteLine(fileText);//прочитать отдельную строку
+            string[] fileLines = File.ReadAllLines(myfirstTXT);
+            Console.WriteLine(fileLines[1]);
+
+        }
+    }
+}
